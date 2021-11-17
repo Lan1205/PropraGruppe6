@@ -6,27 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="prozess.css">
+    <script type="text/javascript" src="prozess.js"></script>
     <title>Reifenmanagement</title>
 </head>
 <body>
 
-    <nav>
+    <!--Menu Bar-->
+    <nav id="menu">
         <ul>
             <li><a href="prozess.html">Prozess</a></li>
             <li><a href="wetter.html">Wetter</a></li>
             <li><a href="history.html">History</a></li>
-            <button id="button"><a href="index.html">Log out</a></button>
+            <button id="button"><a href="login.html">Log out</a></button>
         </ul>
     </nav>
 
+    <!--Input Form Bestellung-->
     <div class ="inline">
         <form action="" id="form">
             <div class = "block">
-            <label for="bestellung">Neue Reifenset bestellen</label><br>
-            <input type="text"  id="bestellung" name="bestellung">
-            <button id="bestellen">Jetzt bestellen</button>
+            <label for="bestellung">Neue Reifenset bestellen</label>
+            <select name="bestellung" id="bestellung" onchange="extraVariante()">
+                <optgroup label="Slicks">
+                    <option value="1">Cold(H/E)</option>
+                    <option value="2">Medium(G/D)</option>
+                    <option value="3">Hot(I/F)</option>
+                </optgroup>
+                <optgroup label="Inters">
+                    <option value="4">Intermediate(H+/E+)</option>
+                </optgroup>
+                <optgroup label="Rain">
+                    <option value="5">Dry wet(T/T)</option>
+                    <option value="7">Heavy wet(A/A)</option>
+                </optgroup>
+            </select><br><br>
+            <div id="extra">
+                <label for="vorderachse">Vorderachse</label>
+                <select name="vorder" id="vorder">
+                    <option value="eg">Extra grooved</option>
+                    <option value="si">Sipped</option>
+                    <option value="egsi">Extra grooved and sipped</option>
+                </select><br><br>
+                <label for="hinterachse">Hinterachse</label>&nbsp;
+                <select name="hinter" id="hinter">
+                    <option value="eg">Extra grooved</option>
+                    <option value="si">Sipped</option>
+                    <option value="egsi">Extra grooved and sipped</option>
+                </select>
+            </div><br>
+            <label for="zeit">Zeit</label>
+            <input type="text" id="zeit" name="zeit">
+            <label for="">Minuten</label>
+            <button type="button"  onclick="addReifenSet()" id="bestellen">Jetzt bestellen</button>
             </div>
 
+        <!--Input Form Reifendruck-->
             <div class="inline">
                 <p class="paragraph">Reifendruck messen</p><br>
                 <label for="fl1">Front left</label> &nbsp;
@@ -58,7 +92,7 @@
                 <input type="text" id="formel" name="formel">
             </div>
 
-            
+        <!--Input Form Heizdecke-->
             <div class="inline">
                 <p class="paragraph">In Heizdecke</p><br>
                 <label for="">Temperatur: </label>
@@ -68,13 +102,18 @@
                 <label for="grad90">90 Grad</label><br><br>
                 <button id="montage">Weiter zur Montage</button>
             </div>
-
+        <!--Input Form Motage-->
             <div class="inline">
                 <p class="paragraph">Montieren</p><br>
                 <button id="fertig">Fertig</button>
             </div>
 
         </form>
+    </div>
+
+
+    <!--Bestellte und gearbeitete Reifensets sind hier gezeigt-->
+    <div id="progress">
     </div>
     
 </body>
