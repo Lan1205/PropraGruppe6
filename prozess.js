@@ -41,8 +41,8 @@ function addReifenSet() {
     let regex = /[0-9]+$/;
     if (regex.test(zeit)==false) {
         alert("Eingabe der Zeit ungültig");
-    }   
-
+        zeit = "";
+    }  
     let reifen = "";
     
     switch (document.getElementById("bestellung").value) {
