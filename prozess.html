@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="prozess.css">
     <script type="text/javascript" src="prozess.js"></script>
@@ -57,7 +59,7 @@
             <label for="zeit">Zeit</label>
             <input type="text" id="zeit" name="zeit">
             <label for="">Minuten</label>
-            <button type="button"  onclick="addReifenSet()" id="bestellen">Jetzt bestellen</button>
+            <button type="button"  onclick="addReifenSet();timer();" id="bestellen">Jetzt bestellen</button>
             </div>
 
         <!--Input Form Reifendruck-->
